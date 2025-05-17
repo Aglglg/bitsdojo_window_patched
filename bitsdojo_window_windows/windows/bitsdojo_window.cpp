@@ -110,6 +110,16 @@ namespace bitsdojo_window {
             {
                 return 0;
             }
+            // PATCHED ||| if null pointer will return
+            if (!createParams->lpcs->lpszClass)
+            {
+                return 0;
+            }
+            if (!createParams->lpcs->lpszName)
+            {
+                return 0;
+            }
+            // |||
             if (wcscmp(createParams->lpcs->lpszClass, L"FLUTTER_RUNNER_WIN32_WINDOW") == 0)
             {
                 flutter_window = (HWND)wparam;
